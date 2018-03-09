@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNextCondensed.ttc">
+            <string>AvenirNextCondensed-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--WeatherVC-->
         <scene sceneID="tne-QT-ifu">
@@ -79,11 +84,29 @@
                                             <action selector="switchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zu-Xw-teb"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press here to refresh back to your current location" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-Y0-C8f">
+                                        <rect key="frame" x="8" y="93" width="136" height="71"/>
+                                        <color key="backgroundColor" red="0.73334843233159663" green="1" blue="0.52217194681431955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="136" id="4Hi-oO-RO9"/>
+                                            <constraint firstAttribute="height" constant="71" id="Uxi-Gv-SdH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                        <color key="textColor" red="0.28902824659999998" green="0.47455499550000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Vnc-ig-oBp" firstAttribute="top" secondItem="ezg-MP-4zA" secondAttribute="top" constant="20" id="B1V-yE-XKN"/>
                                     <constraint firstAttribute="width" secondItem="ezg-MP-4zA" secondAttribute="height" multiplier="125:71" id="Eqw-eR-3oK"/>
+                                    <constraint firstItem="5JZ-Y0-C8f" firstAttribute="leading" secondItem="ezg-MP-4zA" secondAttribute="leading" constant="8" id="HIT-c1-RC1"/>
                                     <constraint firstAttribute="trailing" secondItem="Vnc-ig-oBp" secondAttribute="trailing" constant="8" id="gBc-2W-gru"/>
+                                    <constraint firstItem="5JZ-Y0-C8f" firstAttribute="top" secondItem="eA6-i4-I1w" secondAttribute="bottom" constant="14" id="j93-Kf-sH9"/>
                                     <constraint firstItem="Vnc-ig-oBp" firstAttribute="top" secondItem="ezg-MP-4zA" secondAttribute="top" constant="20" id="nNB-U0-QyE"/>
                                     <constraint firstItem="eA6-i4-I1w" firstAttribute="top" secondItem="ezg-MP-4zA" secondAttribute="top" constant="28" id="oUo-Rh-WuV"/>
                                     <constraint firstAttribute="trailing" secondItem="Vnc-ig-oBp" secondAttribute="trailing" constant="8" id="rO5-rz-NKZ"/>
@@ -110,13 +133,14 @@
                     <connections>
                         <outlet property="cityLabel" destination="DmG-mc-2oQ" id="rAc-UL-7zp"/>
                         <outlet property="conditionImage" destination="XsZ-td-Qpv" id="vdJ-c3-r2s"/>
+                        <outlet property="popup" destination="5JZ-Y0-C8f" id="UhY-Jp-jWt"/>
                         <outlet property="temperatureLabel" destination="93F-rh-IGF" id="m2i-f6-eAh"/>
                         <segue destination="Yi5-Bm-HxO" kind="show" identifier="goToChangeWeatherView" id="WJf-a2-Q4e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="41"/>
+            <point key="canvasLocation" x="-15.199999999999999" y="40.929535232383813"/>
         </scene>
         <!--Change WeatherVC-->
         <scene sceneID="xIB-uk-V8b">

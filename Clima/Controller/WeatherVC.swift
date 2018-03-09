@@ -16,7 +16,7 @@ import Alamofire
 class WeatherVC: UIViewController , CLLocationManagerDelegate , ChangeCityDelegate {
     
     
-
+    
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "0b2bbdc4cb662a5d48d4b4b37da6f08d"
     let locationManager = CLLocationManager()
@@ -25,14 +25,27 @@ class WeatherVC: UIViewController , CLLocationManagerDelegate , ChangeCityDelega
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var conditionImage: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
-    
+    @IBOutlet weak var popup: UILabel!
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MyLocation()
+        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.dismissAlert), userInfo: nil, repeats: false)
+    }
+    
+    func MyLocation(){
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    @objc func dismissAlert(){
+        if popup != nil { // Dismiss the view from here
+            popup.removeFromSuperview()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,7 +129,7 @@ class WeatherVC: UIViewController , CLLocationManagerDelegate , ChangeCityDelega
     }
    
     @IBAction func refreshToMyLocationButtonPressed(_ sender: UIButton) {
-        viewDidLoad()
+       MyLocation()
     }
     
 }
