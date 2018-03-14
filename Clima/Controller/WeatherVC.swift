@@ -130,6 +130,7 @@ class WeatherVC: UIViewController , CLLocationManagerDelegate , ChangeCityDelega
    
     @IBAction func refreshToMyLocationButtonPressed(_ sender: UIButton) {
        MyLocation()
+       updateUIWithWeatherData ()
     }
     
 }
